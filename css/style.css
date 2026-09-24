@@ -113,7 +113,7 @@ button {
 .site-header {
   position: relative;
   width: 100%;
-  padding: clamp(36px, 6vh, 64px) 20px 0;
+  padding: clamp(4px, 1.2vh, 10px) 11px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +131,7 @@ button {
 }
 
 .header-logo {
-  height: clamp(135px, 15vw, 215px);
+  height: clamp(145px, 16vw, 215px);
   width: auto;
   max-width: 90vw;
   object-fit: contain;
@@ -195,7 +195,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center 48%;
   filter: contrast(1.04) brightness(0.96);
   display: block;
 }
@@ -240,7 +240,7 @@ button {
 /* --- TÍTULO DO HERO: some suavemente conforme a imagem se expande --- */
 .hero-title-block {
   padding: 0 20px;
-  margin-top: clamp(28px, 5vh, 58px);
+  margin-top: clamp(140px, 32vh, 340px);
   opacity: calc(1 - var(--hp) * 1.6);
   transform: translateY(calc(var(--hp) * -18px));
 }
@@ -251,9 +251,25 @@ button {
   font-weight: 300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+  color: #7dd3fc;
+  text-shadow: 0 0 18px rgba(125, 211, 252, 0.75), 0 2px 16px rgba(0, 0, 0, 0.8);
   margin-bottom: 12px;
+}
+
+.hero-title-main .blur-text-word:first-of-type {
+  font-weight: 600;
+  position: relative;
+}
+
+.hero-title-main .blur-text-word:first-of-type::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(125, 211, 252, 0.9), rgba(125, 211, 252, 0.15));
 }
 
 .blur-text {
@@ -1492,9 +1508,21 @@ button {
   }
 
   .hero-bg-img {
-    object-position: 50% 58%;
+    object-position: 50% 38%;
     transform: scale(1.4);
     transform-origin: center center;
+  }
+
+  .site-header {
+    padding: clamp(14px, 2vh, 26px) 20px 0;
+  }
+
+  .hero-content {
+    gap: clamp(14px, 2.5vh, 26px);
+  }
+
+  .hero-title-block {
+    margin-top: clamp(110px, 28vh, 280px);
   }
 
   .hero-title-main {
@@ -1600,11 +1628,6 @@ button {
     grid-column: 1;
   }
 
-  .header-logo {
-    height: clamp(150px, 40vw, 230px);
-    max-width: 100vw;
-  }
-
   .whatsapp-float {
     right: 16px;
     bottom: 16px;
@@ -1615,14 +1638,6 @@ button {
   .whatsapp-float svg {
     width: 29px;
     height: 29px;
-  }
-
-  .hero-title-main {
-    font-size: 1.2rem;
-  }
-
-  .hero-title-sub {
-    font-size: 0.78rem;
   }
 
   .section-title {
