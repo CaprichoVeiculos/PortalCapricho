@@ -191,6 +191,12 @@ button {
   }
 }
 
+.hero-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-bg-img {
   width: 100%;
   height: 100%;
@@ -1508,8 +1514,8 @@ button {
   }
 
   .hero-bg-img {
-    object-position: 50% 38%;
-    transform: scale(1.4);
+    object-position: 50% 58%;
+    transform: scale(1.15);
     transform-origin: center center;
   }
 
