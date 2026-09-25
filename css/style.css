@@ -482,6 +482,11 @@ button {
   letter-spacing: 0.22em;
 }
 
+/* Indicador de arraste do carrossel: só existe visualmente no mobile (ver media query) */
+.objectives-swipe-hint {
+  display: none;
+}
+
 /* --- SEÇÃO: 40 ANOS (EXPERIÊNCIA, MOBILIDADE E EXCELÊNCIA) --- */
 .history-section {
   position: relative;
@@ -1481,17 +1486,65 @@ button {
     opacity: 0.5;
   }
 
-  /* Objetivos em 1 coluna ou carrossel fluido */
+  /* Objetivos em carrossel horizontal com scroll-snap no mobile */
   .objectives-grid {
-    grid-template-columns: 1fr;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 26px;
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 4px 20px 10px;
+    gap: 18px;
+  }
+
+  .objectives-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .objective-card {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
   }
 
   .objective-card-inner {
     aspect-ratio: 16 / 11;
+  }
+
+  .objectives-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 6px auto 0;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .objectives-swipe-hint .chevron-right {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    animation: swipeHint 1.6s ease-in-out infinite;
+  }
+
+  @keyframes swipeHint {
+    0%, 100% {
+      transform: translateX(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateX(6px);
+      opacity: 1;
+    }
   }
 
   .history-box {
